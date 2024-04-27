@@ -67,7 +67,7 @@ pipeline {
                         sh """
                         aws eks update-kubeconfig --region ${REGION} --name pixalive-cluster
                         cd helm
-                        helm install yelp-camp .
+                        helm upgrade yelp-camp .
                         """
                     }
                 }
