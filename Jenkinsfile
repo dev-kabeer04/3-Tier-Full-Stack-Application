@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
+        SONAR-TOKEN = 'sonar-token'
         AWS_ACCOUNT_ID = "358308582535"
         REGION = "ap-south-1"
     }
@@ -32,7 +33,7 @@ pipeline {
         stage('SonarQube') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Campground -Dsonar.projectName=Campground"
+                    sh "$SCANNER_HOME/bin/sonar-scanner -Dsonar.login=$SONAR-TOKEN -Dsonar.projectKey=Campground -Dsonar.projectName=Campground"
                 }
             }
         }
