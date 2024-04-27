@@ -12,6 +12,7 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix   # Specify the pathType as Prefix
             backend:
               service:
                 name: yelp-camp-service
