@@ -63,7 +63,7 @@ pipeline {
         stage('Deployment'){
             steps{
                 script{
-                    withAWS(credentials: 'aws-auth', region: "${REGION}") {
+                    withAWS(credentials: 'aws-credentials', region: "${REGION}") {
                         sh """
                         aws eks update-kubeconfig --region ${REGION} --name pixalive-cluster
                         cd Manifests
