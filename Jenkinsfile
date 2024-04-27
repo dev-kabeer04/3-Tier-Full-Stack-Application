@@ -66,8 +66,8 @@ pipeline {
                     withAWS(credentials: 'aws-credentials', region: "${REGION}") {
                         sh """
                         aws eks update-kubeconfig --region ${REGION} --name pixalive-cluster
-                        cd Manifests
-                        kubectl apply -f dss.yml
+                        cd helm
+                        helm install yelp-camp .
                         """
                     }
                 }
