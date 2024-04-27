@@ -30,6 +30,12 @@ pipeline {
                 sh "trivy fs --format table -o fs-report.html ."
             }
         }
+        stage('OWASP Dependency-Check') {
+             steps {
+        sh "dependency-check.sh --scan . --format HTML --project camp --out owasp-report.html"
+            }
+        }
+
         stage('SonarQube') {
             steps {
                 withSonarQubeEnv('sonar') {
