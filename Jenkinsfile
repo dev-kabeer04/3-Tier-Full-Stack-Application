@@ -55,7 +55,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'kabeer-docker-cred', toolName: 'docker') {
-                        sh "docker push adijaiswal/campa:latest"
+                        sh "docker push kabeer04/camp:latest"
                     }
                 }
             }
