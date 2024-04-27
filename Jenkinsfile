@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git credentialsId: 'kabeer-git-cred', url: 'https://github.com/dev-kabeer04/3-Tier-Full-Stack-Application.git'
+                git credentialsId: 'kabeer-git-cred', branch: 'main', url: 'https://github.com/dev-kabeer04/3-Tier-Full-Stack-Application.git'
             }
         }
         stage('Install Package Dependencies') {
