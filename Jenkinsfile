@@ -27,12 +27,11 @@ pipeline {
         }
         stage('Trivy FS Scan') {
             steps {
-                sh "trivy fs . > trivyfs.txt"
+                sh "trivy fs --format table -o /tmp/fs-report.html"
             }
         }
         stage('OWASP Dependency-Check') {
              steps {
-        // sh "dependency-check.sh --scan . --format HTML --project camp --out owasp-report.html"
                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit', odcInstallation: 'DP-Check'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
