@@ -55,7 +55,7 @@ pipeline {
         }
         stage('Trivy Image Scan') {
             steps {
-                sh "trivy image --format table -o fs-report.html kabeer04/camp:latest"
+                sh "trivy image --format table -o /tmp/Is-report.html kabeer04/camp:latest"
             }
         }
         stage('Docker Push Image') {
