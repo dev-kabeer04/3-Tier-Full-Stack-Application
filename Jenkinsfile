@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Trivy FS Scan') {
             steps {
-                sh "trivy fs --format table -o /tmp/trivy/report.html ."
+                sh "trivy fs . > trivyfs.txt"
             }
         }
         stage('OWASP Dependency-Check') {
