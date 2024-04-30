@@ -32,7 +32,9 @@ pipeline {
         }
         stage('OWASP Dependency-Check') {
              steps {
-        sh "dependency-check.sh --scan . --format HTML --project camp --out owasp-report.html"
+        // sh "dependency-check.sh --scan . --format HTML --project camp --out owasp-report.html"
+                dependencyCheck additionalArguments: '--scan ./ --disableNpmAudit', odcInstallation: 'DP-Check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
 
