@@ -6,7 +6,7 @@ pipeline {
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
         SONAR_TOKEN = credentials('sonar-token')
-        AWS_ACCOUNT_ID = "358308582535"
+        AWS_ACCOUNT_ID = "your_account_id"
         REGION = "ap-south-1"
     }
     stages {
